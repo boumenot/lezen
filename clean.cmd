@@ -1,6 +1,6 @@
 @echo off
 
-msbuild.exe /p:Configuration="%config%" /p:Platform="Any CPU" ^
+msbuild.exe /p:Configuration="%config%" /p:Platform="x64" ^
   /verbosity:minimal ^
   /nologo ^
   /fl ^

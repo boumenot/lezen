@@ -5,7 +5,7 @@ if "%config%" == "" (
    set config=Debug
 )
 
-msbuild.exe /p:Configuration="%config%" /p:Platform="Any CPU" ^
+msbuild.exe /p:Configuration="%config%" /p:Platform="x64" ^
   /maxcpucount ^
   /verbosity:minimal ^
   /nologo ^

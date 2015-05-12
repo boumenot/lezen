@@ -9,22 +9,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lezen.Core.Test", "test\Lez
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ABB35F54-6F91-4972-B289-D15E3BE1999F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABB35F54-6F91-4972-B289-D15E3BE1999F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABB35F54-6F91-4972-B289-D15E3BE1999F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABB35F54-6F91-4972-B289-D15E3BE1999F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B3704634-4D8C-4E18-9826-8FED25FF1FB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B3704634-4D8C-4E18-9826-8FED25FF1FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B3704634-4D8C-4E18-9826-8FED25FF1FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B3704634-4D8C-4E18-9826-8FED25FF1FB5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{30D79664-24D1-42FA-9AB6-561FF9CC3E59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{30D79664-24D1-42FA-9AB6-561FF9CC3E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{30D79664-24D1-42FA-9AB6-561FF9CC3E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{30D79664-24D1-42FA-9AB6-561FF9CC3E59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABB35F54-6F91-4972-B289-D15E3BE1999F}.Debug|x64.ActiveCfg = Debug|x64
+		{ABB35F54-6F91-4972-B289-D15E3BE1999F}.Debug|x64.Build.0 = Debug|x64
+		{ABB35F54-6F91-4972-B289-D15E3BE1999F}.Release|x64.ActiveCfg = Release|x64
+		{ABB35F54-6F91-4972-B289-D15E3BE1999F}.Release|x64.Build.0 = Release|x64
+		{B3704634-4D8C-4E18-9826-8FED25FF1FB5}.Debug|x64.ActiveCfg = Debug|x64
+		{B3704634-4D8C-4E18-9826-8FED25FF1FB5}.Debug|x64.Build.0 = Debug|x64
+		{B3704634-4D8C-4E18-9826-8FED25FF1FB5}.Release|x64.ActiveCfg = Release|x64
+		{B3704634-4D8C-4E18-9826-8FED25FF1FB5}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
