@@ -34,5 +34,34 @@ namespace Lezen.Core.Test.Entity
                 }
             }
         }
+
+        [Fact]
+        public void AuthorEntityShouldRoundTrip()
+        {
+            using (var factory = new SqlCompactFactory())
+            {
+                using (var context = factory.Create())
+                {
+                    var document = new Author
+                    {
+                        FirstName = "Jerry",
+                        LastName = "Garcia",
+                        Email = "jerry.garcia@thedead.net",
+                    };
+
+                    context.Authors.Add(document);
+                    context.SaveChanges();
+                }
+
+                using (var context = factory.Create())
+                {
+                    context.Authors.Should().HaveCount(1);
+                    var author = context.Authors.First();
+                    author.FirstName.Should().Be("Jerry");
+                    author.LastName.Should().Be("Garcia");
+                    author.Email.Should().Be("jerry.garcia@thedead.net");
+                }
+            }
+        }
     }
 }

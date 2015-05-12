@@ -33,6 +33,7 @@
       <Link>GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="Entity\Author.cs" />
     <Compile Include="Entity\Document.cs" />
     <Compile Include="Entity\ILezenContext.cs" />
     <Compile Include="Entity\LezenContext.cs" />

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props" Condition="Exists('..\..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props')" />
   <Import Project="..\..\build\lezen.src.settings" />
@@ -74,14 +74,11 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\xunit.core.2.0.0\build\portable-net45+win+wpa81+wp80+monotouch+monoandroid+Xamarin.iOS\xunit.core.props'))" />
   </Target>
-
   <ItemGroup>
     <SqlCompactBinaries_amd64 Include="$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*" />
   </ItemGroup>
   <Target Name="AfterBuild">
     <MakeDir Directories="$(TargetDir)amd64" />
-    <Copy SourceFiles="@(SqlCompactBinaries_amd64)"
-          DestinationFolder="$(TargetDir)amd64" 
-          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(SqlCompactBinaries_amd64)" DestinationFolder="$(TargetDir)amd64" SkipUnchangedFiles="true" />
   </Target>
 </Project>
