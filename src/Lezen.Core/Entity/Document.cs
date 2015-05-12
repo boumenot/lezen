@@ -15,6 +15,6 @@ namespace Lezen.Core.Entity
         public int ID { get; set; }
         public string Title { get; set; }
 
-        public virtual ICollection<Author> Authors { get; private set; }
+        public virtual ICollection<Author> Authors { get; set; }
     }
 }
