@@ -90,6 +90,38 @@ namespace Lezen.Core.Test.Entity
         }
 
         [Fact]
+        public void OrganizationShouldBeOptionalForAuthor()
+        {
+            using (var factory = new SqlCompactFactory())
+            {
+                using (var context = factory.Create())
+                {
+                    var author = new Author
+                    {
+                        FirstName = "Jerry",
+                        LastName = "Garcia",
+                        Email = "jerry.garcia@thedead.net",
+                    };
+
+                    context.Authors.Add(author);
+                    context.SaveChanges();
+                }
+
+                using (var context = factory.Create())
+                {
+                    context.Authors.Should().HaveCount(1);
+                    var author = context.Authors.First();
+                    author.FirstName.Should().Be("Jerry");
+                    author.LastName.Should().Be("Garcia");
+                    author.Email.Should().Be("jerry.garcia@thedead.net");
+
+                    author.Organization.Should().BeNull();
+                }
+            }
+        }
+
+
+        [Fact]
         public void OrganizationEntityShouldRoundTrip()
         {
             using (var factory = new SqlCompactFactory())
