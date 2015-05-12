@@ -8,6 +8,11 @@ namespace Lezen.Core.Entity
 {
     public class Organization
     {
+        public Organization()
+        {
+            this.Authors = new HashSet<Author>();
+        }
+
         public int ID { get; set; }
 
         public string Institution { get; set; }
@@ -16,5 +21,7 @@ namespace Lezen.Core.Entity
         public string Settlement { get; set; }
         public string CountryCode { get; set; }
         public string Country { get; set; }
+
+        public virtual ICollection<Author> Authors { get; set; }
     }
 }

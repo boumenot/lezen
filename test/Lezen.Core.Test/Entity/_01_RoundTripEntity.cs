@@ -64,6 +64,13 @@ namespace Lezen.Core.Test.Entity
                         Email = "jerry.garcia@thedead.net",
                     };
 
+                    var organization = new Organization
+                    {
+                        Country = "Germany",
+                    };
+
+                    author.Organization = organization;
+
                     context.Authors.Add(author);
                     context.SaveChanges();
                 }
@@ -75,6 +82,9 @@ namespace Lezen.Core.Test.Entity
                     author.FirstName.Should().Be("Jerry");
                     author.LastName.Should().Be("Garcia");
                     author.Email.Should().Be("jerry.garcia@thedead.net");
+
+                    var organization = author.Organization;
+                    organization.Country.Should().Be("Germany");
                 }
             }
         }

@@ -19,6 +19,8 @@ namespace Lezen.Core.Entity
         public string LastName { get; set; }
         public string Email { get; set; }
 
+        public virtual Organization Organization { get; set; }
+
         public virtual ICollection<Document> Documents { get; set; }
     }
 }
