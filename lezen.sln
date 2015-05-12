@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lezen.Core", "src\Lezen.Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lezen.Core.Test", "test\Lezen.Core.Test\Lezen.Core.Test.csproj", "{B3704634-4D8C-4E18-9826-8FED25FF1FB5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A9311046-905A-43EE-BD89-B202E110B2FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -24,5 +26,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B3704634-4D8C-4E18-9826-8FED25FF1FB5} = {A9311046-905A-43EE-BD89-B202E110B2FB}
 	EndGlobalSection
 EndGlobal
