@@ -42,14 +42,14 @@ namespace Lezen.Core.Test.Entity
             {
                 using (var context = factory.Create())
                 {
-                    var document = new Author
+                    var author = new Author
                     {
                         FirstName = "Jerry",
                         LastName = "Garcia",
                         Email = "jerry.garcia@thedead.net",
                     };
 
-                    context.Authors.Add(document);
+                    context.Authors.Add(author);
                     context.SaveChanges();
                 }
 
@@ -71,7 +71,7 @@ namespace Lezen.Core.Test.Entity
             {
                 using (var context = factory.Create())
                 {
-                    var document = new Organization
+                    var organization = new Organization
                     {
                         Institution = "--institution--",
                         Department = "--department--",
@@ -81,7 +81,7 @@ namespace Lezen.Core.Test.Entity
                         Settlement = "Fulda",
                     };
 
-                    context.Organizations.Add(document);
+                    context.Organizations.Add(organization);
                     context.SaveChanges();
                 }
 
@@ -95,6 +95,30 @@ namespace Lezen.Core.Test.Entity
                     org.CountryCode.Should().Be("DE");
                     org.PostalCode.Should().Be("66123");
                     org.Settlement.Should().Be("Fulda");
+                }
+            }
+        }
+
+        [Fact]
+        public void KeywordEntityShouldRoundTrip()
+        {
+            using (var factory = new SqlCompactFactory())
+            {
+                using (var context = factory.Create())
+                {
+                    var keyword = new Keyword
+                    {
+                        Value = "keyword1",
+                    };
+
+                    context.Keywords.Add(keyword);
+                    context.SaveChanges();
+                }
+
+                using (var context = factory.Create())
+                {
+                    context.Keywords.Should().HaveCount(1);
+                    context.Keywords.First().Value.Should().Be("keyword1");
                 }
             }
         }
