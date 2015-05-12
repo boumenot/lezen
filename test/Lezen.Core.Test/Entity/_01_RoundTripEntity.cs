@@ -163,19 +163,30 @@ namespace Lezen.Core.Test.Entity
             {
                 using (var context = factory.Create())
                 {
-                    var keyword = new Keyword
+                    var document = new Document
                     {
-                        Value = "keyword1",
+                        Title = "Casey Jones",
                     };
 
-                    context.Keywords.Add(keyword);
+                    var keyword1 = new Keyword { Value = "keyword1" };
+                    var keyword2 = new Keyword { Value = "keyword2" };
+
+                    document.Keywords.Add(keyword1);
+                    document.Keywords.Add(keyword2);
+
+                    context.Documents.Add(document);
                     context.SaveChanges();
                 }
 
                 using (var context = factory.Create())
                 {
-                    context.Keywords.Should().HaveCount(1);
-                    context.Keywords.First().Value.Should().Be("keyword1");
+                    var document = context.Documents.FirstOrDefault();
+                    document.Should().NotBeNull();
+
+                    var keywords = document.Keywords.ToArray();
+                    keywords.Should().HaveCount(2);
+                    keywords.Select(x => x.Value).Should().Contain("keyword1", "keyword2");
+                    keywords.All(x => x.Documents.First().ID == document.ID).Should().BeTrue();
                 }
             }
         }
