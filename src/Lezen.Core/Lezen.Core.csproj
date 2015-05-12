@@ -37,6 +37,7 @@
     <Compile Include="Entity\Document.cs" />
     <Compile Include="Entity\ILezenContext.cs" />
     <Compile Include="Entity\LezenContext.cs" />
+    <Compile Include="Entity\Organization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

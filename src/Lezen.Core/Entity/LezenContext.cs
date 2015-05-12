@@ -16,5 +16,6 @@ namespace Lezen.Core.Entity
 
         public IDbSet<Author> Authors { get; set; }
         public IDbSet<Document> Documents { get; set; }
+        public IDbSet<Organization> Organizations { get; set; }
     }
 }

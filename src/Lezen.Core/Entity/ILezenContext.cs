@@ -7,6 +7,7 @@ namespace Lezen.Core.Entity
     {
         IDbSet<Author> Authors { get; set; }
         IDbSet<Document> Documents { get; set; }
+        IDbSet<Organization> Organizations { get; set; }
 
         int SaveChanges();
     }

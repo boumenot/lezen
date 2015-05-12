@@ -63,5 +63,40 @@ namespace Lezen.Core.Test.Entity
                 }
             }
         }
+
+        [Fact]
+        public void OrganizationEntityShouldRoundTrip()
+        {
+            using (var factory = new SqlCompactFactory())
+            {
+                using (var context = factory.Create())
+                {
+                    var document = new Organization
+                    {
+                        Institution = "--institution--",
+                        Department = "--department--",
+                        Country = "Germany",
+                        CountryCode = "DE",
+                        PostalCode = "66123",
+                        Settlement = "Fulda",
+                    };
+
+                    context.Organizations.Add(document);
+                    context.SaveChanges();
+                }
+
+                using (var context = factory.Create())
+                {
+                    context.Organizations.Should().HaveCount(1);
+                    var org = context.Organizations.First();
+                    org.Institution.Should().Be("--institution--");
+                    org.Department.Should().Be("--department--");
+                    org.Country.Should().Be("Germany");
+                    org.CountryCode.Should().Be("DE");
+                    org.PostalCode.Should().Be("66123");
+                    org.Settlement.Should().Be("Fulda");
+                }
+            }
+        }
     }
 }
