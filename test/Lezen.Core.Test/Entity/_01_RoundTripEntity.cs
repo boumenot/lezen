@@ -18,10 +18,16 @@ namespace Lezen.Core.Test.Entity
             {
                 using (var context = factory.Create())
                 {
+                    var author1 = new Author { FirstName = "Jerry", LastName = "Garcia" };
+                    var author2 = new Author { FirstName = "Bob", LastName = "Weir" };
+
                     var document = new Document()
                     {
-                        Title = "--title--",
+                        Title = "Truckin",
                     };
+
+                    document.Authors.Add(author1);
+                    document.Authors.Add(author2);
 
                     context.Documents.Add(document);
                     context.SaveChanges();
@@ -30,7 +36,16 @@ namespace Lezen.Core.Test.Entity
                 using (var context = factory.Create())
                 {
                     context.Documents.Should().HaveCount(1);
-                    context.Documents.First().Title.Should().Be("--title--");
+                    var document = context.Documents.First();
+                    document.Title.Should().Be("Truckin");
+                    document.Authors.Should().HaveCount(2);
+                    document.Authors.Should().ContainSingle(x => x.LastName == "Weir");
+                    document.Authors.Should().ContainSingle(x => x.LastName == "Garcia");
+
+                    var authors = context.Authors.ToArray();
+                    authors.Should().HaveCount(2);
+                    authors.All(x => x.Documents.Count == 1).Should().BeTrue();
+                    authors.All(x => x.Documents.First().ID == document.ID).Should().BeTrue();
                 }
             }
         }
