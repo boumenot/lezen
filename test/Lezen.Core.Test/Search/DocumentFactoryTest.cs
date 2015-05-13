@@ -146,6 +146,5 @@ namespace Lezen.Core.Test.Search
             abstractField.OmitNorms.Should().BeTrue();
             abstractField.OmitTermFreqAndPositions.Should().BeFalse();
         }
-
     }
 }
