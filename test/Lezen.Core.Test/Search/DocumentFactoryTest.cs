@@ -91,5 +91,31 @@ namespace Lezen.Core.Test.Search
             abstractField.OmitTermFreqAndPositions.Should().BeFalse();
         }
 
+        [Fact]
+        public void KeywordShouldBeAnalyzedField()
+        {
+            var searchItem = new SearchItem
+            {
+                Abstract = "--abstract--",
+                Keywords = new[] { "keyword1", "keyword2", "keyword3" },
+                Text = "--text--",
+            };
+
+            var testSubject = new DocumentFactory();
+            var document = testSubject.Create(searchItem);
+
+            var abstractField = document.GetField("Keyword");
+            abstractField.IsBinary.Should().BeFalse();
+            abstractField.IsIndexed.Should().BeTrue();
+            abstractField.IsLazy.Should().BeFalse();
+            abstractField.IsStored.Should().BeTrue();
+            abstractField.IsStoreOffsetWithTermVector.Should().BeFalse();
+            abstractField.IsStorePositionWithTermVector.Should().BeFalse();
+            abstractField.IsTermVectorStored.Should().BeFalse();
+            abstractField.IsTokenized.Should().BeTrue();
+            abstractField.OmitNorms.Should().BeFalse();
+            abstractField.OmitTermFreqAndPositions.Should().BeFalse();
+        }
+
     }
 }
