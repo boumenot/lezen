@@ -13,7 +13,7 @@ namespace Lezen.Core.Test.Search
     public class DocumentFactoryTest
     {
         [Fact]
-        public void Test()
+        public void DocumentShouldHaveCorrectFieldNames()
         {
             var searchItem = new SearchItem
             {
@@ -37,6 +37,32 @@ namespace Lezen.Core.Test.Search
             document.Get("Text").Should().Be("--text--");
             document.GetValues("Keyword").Should().HaveCount(3);
             document.GetValues("Keyword").Should().Contain("keyword1", "keyword2", "keyword3");
+        }
+
+        [Fact]
+        public void AbstractShouldBeAnalyzedField()
+        {
+            var searchItem = new SearchItem
+            {
+                Abstract = "--abstract--",
+                Keywords = new[] { "keyword1", "keyword2", "keyword3" },
+                Text = "--text--",
+            };
+
+            var testSubject = new DocumentFactory();
+            var document = testSubject.Create(searchItem);
+
+            var abstractField = document.GetField("Abstract");
+            abstractField.IsBinary.Should().BeFalse();
+            abstractField.IsIndexed.Should().BeTrue();
+            abstractField.IsLazy.Should().BeFalse();
+            abstractField.IsStored.Should().BeTrue();
+            abstractField.IsStoreOffsetWithTermVector.Should().BeTrue();
+            abstractField.IsStorePositionWithTermVector.Should().BeTrue();
+            abstractField.IsTermVectorStored.Should().BeTrue();
+            abstractField.IsTokenized.Should().BeTrue();
+            abstractField.OmitNorms.Should().BeFalse();
+            abstractField.OmitTermFreqAndPositions.Should().BeFalse();
         }
     }
 }
