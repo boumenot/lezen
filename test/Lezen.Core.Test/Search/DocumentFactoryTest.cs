@@ -17,6 +17,7 @@ namespace Lezen.Core.Test.Search
         {
             var searchItem = new SearchItem
             {
+                EntityID = 1,
                 Abstract = "--abstract--",
                 Keywords = new[] { "keyword1", "keyword2", "keyword3" },
                 Text = "--text--",
@@ -44,6 +45,7 @@ namespace Lezen.Core.Test.Search
         {
             var searchItem = new SearchItem
             {
+                EntityID = 1,
                 Abstract = "--abstract--",
                 Keywords = new[] { "keyword1", "keyword2", "keyword3" },
                 Text = "--text--",
@@ -96,6 +98,7 @@ namespace Lezen.Core.Test.Search
         {
             var searchItem = new SearchItem
             {
+                EntityID = 1,
                 Abstract = "--abstract--",
                 Keywords = new[] { "keyword1", "keyword2", "keyword3" },
                 Text = "--text--",
@@ -114,6 +117,33 @@ namespace Lezen.Core.Test.Search
             abstractField.IsTermVectorStored.Should().BeFalse();
             abstractField.IsTokenized.Should().BeTrue();
             abstractField.OmitNorms.Should().BeFalse();
+            abstractField.OmitTermFreqAndPositions.Should().BeFalse();
+        }
+
+        [Fact]
+        public void EntityIDShouldBeStoredField()
+        {
+            var searchItem = new SearchItem
+            {
+                EntityID = 1,
+                Abstract = "--abstract--",
+                Keywords = new[] { "keyword1", "keyword2", "keyword3" },
+                Text = "--text--",
+            };
+
+            var testSubject = new DocumentFactory();
+            var document = testSubject.Create(searchItem);
+
+            var abstractField = document.GetField("EntityID");
+            abstractField.IsBinary.Should().BeFalse();
+            abstractField.IsIndexed.Should().BeFalse();
+            abstractField.IsLazy.Should().BeFalse();
+            abstractField.IsStored.Should().BeTrue();
+            abstractField.IsStoreOffsetWithTermVector.Should().BeFalse();
+            abstractField.IsStorePositionWithTermVector.Should().BeFalse();
+            abstractField.IsTermVectorStored.Should().BeFalse();
+            abstractField.IsTokenized.Should().BeFalse();
+            abstractField.OmitNorms.Should().BeTrue();
             abstractField.OmitTermFreqAndPositions.Should().BeFalse();
         }
 

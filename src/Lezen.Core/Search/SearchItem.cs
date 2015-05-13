@@ -7,6 +7,7 @@ namespace Lezen.Core.Search
 {
     public class SearchItem
     {
+        public int EntityID { get; set; }
         public string Abstract { get; set; }
         public string Text { get; set; }
         public string[] Keywords { get; set; }
