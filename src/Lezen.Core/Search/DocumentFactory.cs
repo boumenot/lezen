@@ -14,16 +14,23 @@ namespace Lezen.Core.Search
 
             foreach (var keyword in searchItem.Keywords)
             {
-                document.Add(
-                    new Field("Keyword", keyword, Field.Store.YES, Field.Index.ANALYZED));
+                document.Add(this.CreateKeywordField("Keyword", keyword));
             }
 
-            document.Add(
-                new Field("Abstract", searchItem.Abstract, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
-            document.Add(
-                new Field("Text", searchItem.Text, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS));
+            document.Add(this.CreateIndexedTextField("Abstract", searchItem.Abstract));
+            document.Add(this.CreateIndexedTextField("Text", searchItem.Text));
 
             return document;
+        }
+
+        private Field CreateKeywordField(string name, string value)
+        {
+            return new Field(name, value, Field.Store.NO, Field.Index.ANALYZED);
+        }
+
+        private Field CreateIndexedTextField(string name, string value)
+        {
+            return new Field(name, value, Field.Store.YES, Field.Index.ANALYZED, Field.TermVector.WITH_POSITIONS_OFFSETS);
         }
     }
 }

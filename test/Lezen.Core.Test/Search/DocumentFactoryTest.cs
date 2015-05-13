@@ -108,7 +108,7 @@ namespace Lezen.Core.Test.Search
             abstractField.IsBinary.Should().BeFalse();
             abstractField.IsIndexed.Should().BeTrue();
             abstractField.IsLazy.Should().BeFalse();
-            abstractField.IsStored.Should().BeTrue();
+            abstractField.IsStored.Should().BeFalse();
             abstractField.IsStoreOffsetWithTermVector.Should().BeFalse();
             abstractField.IsStorePositionWithTermVector.Should().BeFalse();
             abstractField.IsTermVectorStored.Should().BeFalse();
