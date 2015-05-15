@@ -14,7 +14,7 @@ namespace Lezen.Core.Test.Search
 {
     public class _01_QueryIndex
     {
-        [Fact(Skip="Too much for a unit test")]
+        [Fact(Skip="Too much for a unit test.")]
         public void Test()
         {
             using (var temp = new TempDirectory(System.IO.Directory.GetCurrentDirectory()))

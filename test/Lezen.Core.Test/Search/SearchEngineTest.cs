@@ -12,7 +12,7 @@ namespace Lezen.Core.Test.Search
 {
     public class SearchEngineTest
     {
-        [Fact]
+        [Fact(Skip = "Too much for a unit test.")]
         public void QueryShouldSearchByEntityID()
         {
             using (var temp = new TempDirectory(Directory.GetCurrentDirectory()))
@@ -41,7 +41,7 @@ namespace Lezen.Core.Test.Search
             }
         }
 
-        [Fact]
+        [Fact(Skip="Too much for a unit test.")]
         public void QueryShouldReturnDocumentsInSearchEngine()
         {
             using (var temp = new TempDirectory(Directory.GetCurrentDirectory()))
