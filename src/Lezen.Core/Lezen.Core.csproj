@@ -50,6 +50,7 @@
     <Compile Include="Search\DocumentFactory.cs" />
     <Compile Include="Search\IDocument.cs" />
     <Compile Include="Search\SearchDocument.cs" />
+    <Compile Include="Search\SearchEngine.cs" />
     <Compile Include="Search\SearchItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
