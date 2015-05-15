@@ -66,5 +66,21 @@ namespace Lezen.Core.Test.Search
                 documents.Select(x => x.EntityID).Should().Contain(new[] { 1, 2 });
             }
         }
+
+        //[Fact(Skip = "Too much for a unit test.")]
+        [Fact]
+        public void EngineShouldDeleteDocuments()
+        {
+            using (var temp = new TempDirectory(Directory.GetCurrentDirectory()))
+            using (var testSubject = new SearchEngine(temp.Path))
+            {
+                var searchItem1 = new SearchItem { EntityID = 1, Abstract = "--abstract--", Text = "--text--", Keywords = new string[0] };
+                testSubject.Insert(searchItem1);
+
+                testSubject.Query(1).Should().HaveCount(1);
+                testSubject.Delete(1);
+                testSubject.Query(1).Should().HaveCount(0);
+            }
+        }
     }
 }

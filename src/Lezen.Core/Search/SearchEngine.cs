@@ -79,5 +79,14 @@ namespace Lezen.Core.Search
                 }
             }
         }
+
+        public void Delete(int entityID)
+        {
+            var term = new Term(Constants.Search.EntityID, entityID.ToString());
+            this.indexWriter.DeleteDocuments(term);
+
+            this.indexWriter.ExpungeDeletes(doWait: true);
+            this.indexWriter.Commit();
+        }
     }
 }
