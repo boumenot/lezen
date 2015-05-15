@@ -41,6 +41,7 @@
       <Link>GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Class1.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Entity\Author.cs" />
     <Compile Include="Entity\Document.cs" />
     <Compile Include="Entity\ILezenContext.cs" />
@@ -48,6 +49,8 @@
     <Compile Include="Entity\LezenContext.cs" />
     <Compile Include="Entity\Organization.cs" />
     <Compile Include="Search\DocumentFactory.cs" />
+    <Compile Include="Search\IDocument.cs" />
+    <Compile Include="Search\SearchDocument.cs" />
     <Compile Include="Search\SearchItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -62,6 +62,7 @@
     <Compile Include="Entity\SqlCompactFactory.cs" />
     <Compile Include="Entity\_01_RoundTripEntity.cs" />
     <Compile Include="Search\DocumentFactoryTest.cs" />
+    <Compile Include="Search\SearchDocumentTest.cs" />
     <Compile Include="Search\_01_QueryIndex.cs" />
     <Compile Include="TempDirectory.cs" />
     <Compile Include="UnitTest1.cs" />

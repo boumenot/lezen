@@ -10,16 +10,16 @@ namespace Lezen.Core.Search
     {
         public Document Create(SearchItem searchItem)
         {
-            var document = new Document();
+            var document = new Lucene.Net.Documents.Document();
 
             foreach (var keyword in searchItem.Keywords)
             {
-                document.Add(this.CreateKeywordField("Keyword", keyword));
+                document.Add(this.CreateKeywordField(Constants.Search.Keyword, keyword));
             }
 
-            document.Add(this.CreateStoredField("EntityID", searchItem.EntityID.ToString()));
-            document.Add(this.CreateIndexedTextField("Abstract", searchItem.Abstract));
-            document.Add(this.CreateIndexedTextField("Text", searchItem.Text));
+            document.Add(this.CreateStoredField(Constants.Search.EntityID, searchItem.EntityID.ToString()));
+            document.Add(this.CreateIndexedTextField(Constants.Search.Abstract, searchItem.Abstract));
+            document.Add(this.CreateIndexedTextField(Constants.Search.Text, searchItem.Text));
 
             return document;
         }
