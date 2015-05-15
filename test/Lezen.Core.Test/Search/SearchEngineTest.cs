@@ -67,8 +67,7 @@ namespace Lezen.Core.Test.Search
             }
         }
 
-        //[Fact(Skip = "Too much for a unit test.")]
-        [Fact]
+        [Fact(Skip = "Too much for a unit test.")]
         public void EngineShouldDeleteDocuments()
         {
             using (var temp = new TempDirectory(Directory.GetCurrentDirectory()))
