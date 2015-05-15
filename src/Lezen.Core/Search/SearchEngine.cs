@@ -8,6 +8,7 @@ using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Index;
 using Lucene.Net.Search;
 using Lucene.Net.Store;
+using Lucene.Net.QueryParsers;
 
 namespace Lezen.Core.Search
 {
@@ -30,7 +31,13 @@ namespace Lezen.Core.Search
 
         public IEnumerable<IDocument> Query(string q)
         {
-            return Enumerable.Empty<IDocument>();
+            var parser = new MultiFieldQueryParser(
+                Lucene.Net.Util.Version.LUCENE_30,
+                new[] { Constants.Search.Abstract, Constants.Search.Text },
+                this.analyzer);
+
+            var query = parser.Parse(q);
+            return this.Query(query);
         }
 
         public IEnumerable<IDocument> Query(int entityID)
