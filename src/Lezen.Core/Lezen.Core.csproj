@@ -40,7 +40,6 @@
     <Compile Include="..\..\build\GlobalAssemblyInfo.cs">
       <Link>GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Entity\Author.cs" />
     <Compile Include="Entity\Document.cs" />
