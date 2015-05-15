@@ -136,7 +136,7 @@ namespace Lezen.Core.Test.Search
 
             var abstractField = document.GetField("EntityID");
             abstractField.IsBinary.Should().BeFalse();
-            abstractField.IsIndexed.Should().BeFalse();
+            abstractField.IsIndexed.Should().BeTrue();
             abstractField.IsLazy.Should().BeFalse();
             abstractField.IsStored.Should().BeTrue();
             abstractField.IsStoreOffsetWithTermVector.Should().BeFalse();

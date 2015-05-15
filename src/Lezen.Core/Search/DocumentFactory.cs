@@ -26,7 +26,7 @@ namespace Lezen.Core.Search
 
         private Field CreateStoredField(string name, string value)
         {
-            return new Field(name, value, Field.Store.YES, Field.Index.NO, Field.TermVector.NO);
+            return new Field(name, value, Field.Store.YES, Field.Index.NOT_ANALYZED_NO_NORMS, Field.TermVector.NO);
         }
 
         private Field CreateKeywordField(string name, string value)
